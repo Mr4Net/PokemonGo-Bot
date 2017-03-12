@@ -71,7 +71,6 @@ namespace PokeMaster
         private System.Windows.Forms.TextBox textBoxPokemonsList;
         private System.Windows.Forms.CheckBox checkBoxMinIVSnipe;
         private System.Windows.Forms.CheckBox checkBoxMinProbSnipe;
-        private System.Windows.Forms.Label label10;
         
         /// <summary>
         /// Disposes resources used by the control.
@@ -125,15 +124,15 @@ namespace PokeMaster
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.label3 = new System.Windows.Forms.Label();
             this.listView = new System.Windows.Forms.ListView();
-            this.cuURI = new System.Windows.Forms.ColumnHeader();
-            this.chIV = new System.Windows.Forms.ColumnHeader();
-            this.chProbability = new System.Windows.Forms.ColumnHeader();
-            this.chDate = new System.Windows.Forms.ColumnHeader();
-            this.chLastUpdate = new System.Windows.Forms.ColumnHeader();
-            this.chId = new System.Windows.Forms.ColumnHeader();
-            this.chName = new System.Windows.Forms.ColumnHeader();
-            this.chTillHidden = new System.Windows.Forms.ColumnHeader();
-            this.chUsed = new System.Windows.Forms.ColumnHeader();
+            this.cuURI = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chIV = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chProbability = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chLastUpdate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chId = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chTillHidden = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chUsed = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.snipeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.markAsUsedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -145,7 +144,6 @@ namespace PokeMaster
             this.label5 = new System.Windows.Forms.Label();
             this.timerAutosnipe = new System.Windows.Forms.Timer(this.components);
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.label10 = new System.Windows.Forms.Label();
             this.checkBoxMinIVSnipe = new System.Windows.Forms.CheckBox();
             this.checkBoxMinProbSnipe = new System.Windows.Forms.CheckBox();
             this.numMinProbSnipe = new System.Windows.Forms.NumericUpDown();
@@ -153,6 +151,7 @@ namespace PokeMaster
             this.checkBoxSelectAll = new System.Windows.Forms.CheckBox();
             this.checkedListBox_ToSnipe = new System.Windows.Forms.CheckedListBox();
             this.timerAutoImport = new System.Windows.Forms.Timer(this.components);
+            this.comboSnipe = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PokemonImage)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -703,7 +702,7 @@ namespace PokeMaster
             // 
             this.groupBox5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.groupBox5.Controls.Add(this.label10);
+            this.groupBox5.Controls.Add(this.comboSnipe);
             this.groupBox5.Controls.Add(this.checkBoxMinIVSnipe);
             this.groupBox5.Controls.Add(this.checkBoxMinProbSnipe);
             this.groupBox5.Controls.Add(this.numMinProbSnipe);
@@ -719,15 +718,6 @@ namespace PokeMaster
             this.groupBox5.TabIndex = 101;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Pokemons to Snipe Automatically";
-            // 
-            // label10
-            // 
-            this.label10.Location = new System.Drawing.Point(9, 120);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(162, 20);
-            this.label10.TabIndex = 101;
-            this.label10.Text = "Or is in the next list";
-            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // checkBoxMinIVSnipe
             // 
@@ -808,6 +798,18 @@ namespace PokeMaster
             this.timerAutoImport.Interval = 600000;
             this.timerAutoImport.Tick += new System.EventHandler(this.timerAutoImport_Tick);
             // 
+            // comboSnipe
+            // 
+            this.comboSnipe.FormattingEnabled = true;
+            this.comboSnipe.Items.AddRange(new object[] {
+            "Or is in the next list",
+            "And is in the next list"});
+            this.comboSnipe.Location = new System.Drawing.Point(15, 121);
+            this.comboSnipe.Name = "comboSnipe";
+            this.comboSnipe.Size = new System.Drawing.Size(121, 21);
+            this.comboSnipe.TabIndex = 101;
+            this.comboSnipe.Text = "Or is in the next list";
+            // 
             // SniperPanel
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
@@ -844,5 +846,7 @@ namespace PokeMaster
             this.PerformLayout();
 
         }
+
+        private System.Windows.Forms.ComboBox comboSnipe;
     }
 }
