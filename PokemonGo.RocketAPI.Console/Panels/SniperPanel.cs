@@ -289,22 +289,56 @@ namespace PokeMaster
                     txt = txt.Replace("pokesniper2://", "");
                     var splt = txt.Split('/');
                     var pokeID = ToPokemonID(splt[0]);
-                    if ( GlobalVars.ToSnipe.Contains(pokeID)){
-                        return element;
+                    if (comboSnipe.SelectedIndex == 1)
+                    {
+                        if (GlobalVars.ToSnipe.Contains(pokeID))
+                        {
+
+                            if (checkBoxMinIVSnipe.Checked)
+                            {
+                                var iv = 0.0;
+                                double.TryParse(element.SubItems[1].Text, out iv);
+                                var minIV = (int)numMinIVSnipe.Value;
+                                if (iv >= minIV)
+                                    return element;
+                            }
+                            if (checkBoxMinProbSnipe.Checked)
+                            {
+                                var prob = 0.0;
+                                double.TryParse(element.SubItems[1].Text, out prob);
+                                var minProb = (int)numMinProbSnipe.Value;
+                                if (prob >= minProb)
+                                    return element;
+                            }
+                            if (!checkBoxMinIVSnipe.Checked && !checkBoxMinProbSnipe.Checked)
+                            {
+                                return element;
+                            }
+                            
+                        }
                     }
-                    if (checkBoxMinIVSnipe.Checked){
-                        var iv = 0.0;
-                        double.TryParse (element.SubItems[1].Text, out iv);
-                        var minIV =  (int)numMinIVSnipe.Value;
-                        if ( iv >= minIV)
+                    else
+                    {
+                        if (GlobalVars.ToSnipe.Contains(pokeID))
+                        {
                             return element;
-                    }
-                    if (checkBoxMinProbSnipe.Checked){
-                        var prob = 0.0;
-                        double.TryParse (element.SubItems[1].Text, out prob);
-                        var minProb =  (int)numMinProbSnipe.Value;
-                        if ( prob >= minProb)
-                            return element;
+                        }
+                        if (checkBoxMinIVSnipe.Checked)
+                        {
+                            var iv = 0.0;
+                            double.TryParse(element.SubItems[1].Text, out iv);
+                            var minIV = (int)numMinIVSnipe.Value;
+                            if (iv >= minIV)
+                                return element;
+                        }
+                        if (checkBoxMinProbSnipe.Checked)
+                        {
+                            var prob = 0.0;
+                            double.TryParse(element.SubItems[1].Text, out prob);
+                            var minProb = (int)numMinProbSnipe.Value;
+                            if (prob >= minProb)
+                                return element;
+                        }
                     }
                     Logger.Debug(pokeID +" not is in to snipe list");
                     element.SubItems[8].Text = "true";
