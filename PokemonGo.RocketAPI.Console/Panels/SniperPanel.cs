@@ -302,7 +302,7 @@ namespace PokeMaster
                                 if (iv >= minIV)
                                     return element;
                             }
-                            else if (checkBoxMinProbSnipe.Checked)
+                            if (checkBoxMinProbSnipe.Checked)
                             {
                                 var prob = 0.0;
                                 double.TryParse(element.SubItems[1].Text, out prob);
@@ -310,7 +310,7 @@ namespace PokeMaster
                                 if (prob >= minProb)
                                     return element;
                             }
-                            else
+                            if (!checkBoxMinIVSnipe.Checked && !checkBoxMinProbSnipe.Checked)
                             {
                                 return element;
                             }
